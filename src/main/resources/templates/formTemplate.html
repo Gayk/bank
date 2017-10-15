@@ -1,0 +1,26 @@
+<!DOCTYPE HTML >
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Title</title>
+</head>
+<body>
+<center><h1 th:text="${info}"> </h1></center>
+<br/>
+<!--<h2 th:style=" color: red;" th:text = "${info}"></h2>-->
+<!--<form th:if="${info}==null" th:action="@{/newform}" method="post">-->
+   <!--Dochód: <input type="number" th:name="salary"/>-->
+    <!--Koszty:  <input type="number" th:name="costs"/>-->
+    <!--Kowota pożyczki: <input type="number" th:name="credit"/>-->
+    <!--Okres Kredytowania: <input type="number" th:name="period"/>-->
+    <!--<input type="submit" value="wyślij"/>-->
+<!--</form>-->
+<form th:if="${info}==null" th:object="${creditForm}" th:action="@{/}" method="post">
+    Dochód: <input type="number" th:field ="*{salary}"/>
+    Koszty:  <input type="number" th:field ="*{costs}" />
+    Kowota pożyczki: <input type="number"  th:field ="*{credit}"/>
+    Okres Kredytowania: <input type="number" th:field ="*{period}"/>
+    <input type="submit" value="wyślij"/>
+</form>
+</body>
+</html>
